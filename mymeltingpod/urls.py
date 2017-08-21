@@ -27,8 +27,10 @@ def hello(request):
 urlpatterns = [    
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    
     url(r'^$' , hello),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+ 

@@ -8,10 +8,25 @@
 
     {{ post.content|linebreaks }}
 
+    <h5>COMMNETS</h5>
+    <ul>
+        {% for commnet in post.comment_set.all %}
+        <li> 
+            {{ commnet.message }}
+            by {{ commnet.author }}
+
+
+        </li>
+
+        {% endfor %}
+    </ul>
+
+
     <hr/>
 
     <a href="{% url "blog:post_list" %}" class="btn btn-primary">LIST</a>
 
+    <a href="{% url "blog:comment_new" post.pk %}" class="btn btn-primary">COMMENT</a>
 {% endblock %}
 
     
